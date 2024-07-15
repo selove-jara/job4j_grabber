@@ -42,7 +42,7 @@ public class AlertRabbit {
 
     public static void main(String[] args) {
         Properties properties = loadProperties();
-        try(Connection connection = getConnection(properties)) {
+        try (Connection connection = getConnection(properties)) {
             List<Long> store = new ArrayList<>();
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
             scheduler.start();
