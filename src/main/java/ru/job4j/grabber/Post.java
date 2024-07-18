@@ -11,6 +11,14 @@ public class Post {
         this.created = created;
     }
 
+    public Post(int id, String title, String link, String description, LocalDateTime created) {
+        this.id = id;
+        this.title = title;
+        this.link = link;
+        this.description = description;
+        this.created = created;
+    }
+
     public int getId() {
         return id;
     }
@@ -73,5 +81,16 @@ public class Post {
     @Override
     public int hashCode() {
         return Objects.hash(link);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{"
+                + "id=" + id
+                + ", title='" + title + '\''
+                + ", link='" + link + '\''
+                + ", description='" + description + '\''
+                + ", created=" + created
+                + '}';
     }
 }
