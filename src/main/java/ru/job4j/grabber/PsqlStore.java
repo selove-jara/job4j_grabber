@@ -87,25 +87,4 @@ public class PsqlStore implements Store {
             connection.close();
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        Properties config;
-        try (InputStream input = PsqlStore.class.getClassLoader().getResourceAsStream("app.properties")) {
-            config = new Properties();
-            config.load(input);
-        } catch (Exception e) {
-            throw new IllegalStateException(e);
-        }
-        HabrCareerParse parser = new HabrCareerParse(new HabrCareerDateTimeParser());
-        List<Post> posts = parser.list("https://career.habr.com");
-        try {
-            PsqlStore store = new PsqlStore(config);
-            posts.forEach(store::save);
-            store.getAll().forEach(System.out::println);
-            System.out.println(store.findById(5));
-            store.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

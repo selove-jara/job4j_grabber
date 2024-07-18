@@ -31,12 +31,6 @@ public class HabrCareerParse implements Parse {
         return description.text();
     }
 
-    public static void main(String[] args) throws IOException {
-        HabrCareerParse parser = new HabrCareerParse(new HabrCareerDateTimeParser());
-        List<Post> posts = parser.list(SOURCE_LINK);
-        posts.forEach(post -> System.out.printf("%s %s%n", post.getTitle(), post.getLink()));
-    }
-
     @Override
     public List<Post> list(String link) throws IOException {
         List<Post> posts = new ArrayList<>();
